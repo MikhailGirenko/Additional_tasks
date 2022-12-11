@@ -1,6 +1,15 @@
 package ru.girenko.springcourse;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassicalMusic implements Music{
+
+
+    public static ClassicalMusic getClassicalMusic(){
+        return new ClassicalMusic();
+    }
 
     public void doMyInit(){
         System.out.println("Doing my initialization");
