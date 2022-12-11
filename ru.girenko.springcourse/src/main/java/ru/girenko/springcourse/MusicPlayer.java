@@ -1,39 +1,23 @@
 package ru.girenko.springcourse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
-    private Music music;
-    private String name;
-    private int volume;
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public MusicPlayer(Music music) {
-        this.music = music;
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public void playMusic(){
-        System.out.println("Играет: "+ music.getSong() );
+    public String playMusic(){
+        return "Играет: "+ classicalMusic.getSong();
     }
 }
