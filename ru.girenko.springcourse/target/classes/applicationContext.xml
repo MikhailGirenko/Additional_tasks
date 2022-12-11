@@ -10,34 +10,38 @@
 <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="ru.girenko.springcourse.ClassicalMusic">
+          class="ru.girenko.springcourse.ClassicalMusic"
+    init-method="doMyInit"
+    destroy-method="doMyDestroy"
+    scope="prototype">
+
     </bean>
 
-    <bean id="rapMusicBean"
-          class="ru.girenko.springcourse.RapMusic">
-    </bean>
+<!--    <bean id="rapMusicBean"-->
+<!--          class="ru.girenko.springcourse.RapMusic">-->
+<!--    </bean>-->
 
-    <bean id="classicalMusicBean"
-          class="ru.girenko.springcourse.ClassicalMusic">
-    </bean>
+<!--    <bean id="classicalMusicBean"-->
+<!--          class="ru.girenko.springcourse.ClassicalMusic">-->
+<!--    </bean>-->
 
-    <bean id="rockMusicBean"
-          class="ru.girenko.springcourse.RockMusic">
-    </bean>
+<!--    <bean id="rockMusicBean"-->
+<!--          class="ru.girenko.springcourse.RockMusic">-->
+<!--    </bean>-->
 
-    <bean id="musicPlayer"
-          class="ru.girenko.springcourse.MusicPlayer">
+<!--    <bean id="musicPlayer"-->
+<!--          class="ru.girenko.springcourse.MusicPlayer">-->
 
-        <property name="musicList">
-            <list>
-                <ref bean="rapMusicBean"/>
-                <ref bean="classicalMusicBean"/>
-                <ref bean="rockMusicBean"/>
-            </list>
-        </property>
+<!--        <property name="musicList">-->
+<!--            <list>-->
+<!--                <ref bean="rapMusicBean"/>-->
+<!--                <ref bean="classicalMusicBean"/>-->
+<!--                <ref bean="rockMusicBean"/>-->
+<!--            </list>-->
+<!--        </property>-->
 
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 </beans>
