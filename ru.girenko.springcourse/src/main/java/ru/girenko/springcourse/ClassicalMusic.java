@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 public class ClassicalMusic implements Music{
 
@@ -20,7 +22,11 @@ public class ClassicalMusic implements Music{
     }
 
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public ArrayList<String> getSong() {
+        ArrayList<String> songList = new ArrayList<>();
+        songList.add("Classic1");
+        songList.add("Classic2");
+        songList.add("Classic3");
+        return songList;
     }
 }
