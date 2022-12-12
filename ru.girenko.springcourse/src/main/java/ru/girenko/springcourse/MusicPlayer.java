@@ -1,14 +1,16 @@
 package ru.girenko.springcourse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MusicPlayer {
+
+
+    private List<Music> catalog;
+
+
     @Value("${musicPlayer.name}")
     private String name;
     @Value("${musicPlayer.volume}")
@@ -24,14 +26,16 @@ public class MusicPlayer {
 
     private ClassicalMusic classicalMusic;
     private RockMusic rockMusic;
+    private RapMusic rapMusic;
 
-
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(List<Music> catalog) {
+        this.catalog = catalog;
     }
 
     public String playMusic(){
-        return "Играет: "+ classicalMusic.getSong();
+
+        Random random = new Random();
+
+        return "Играет: "+ catalog.get(random.nextInt(catalog.size())).getSong()+" на громкосте: "+ volume;
     }
 }
