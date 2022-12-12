@@ -24,9 +24,6 @@ public class MusicPlayer {
         return volume;
     }
 
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
-    private RapMusic rapMusic;
 
     public MusicPlayer(List<Music> catalog) {
         this.catalog = catalog;
